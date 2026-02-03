@@ -24,13 +24,19 @@ export default function ProductList() {
 
             {products.length === 0 && <p>No hay productos</p>}
 
+            <div class="grid grid-cols-1 md:grid-cols-3  mt-5 gap-5 text-white text-center">
             {products.map(product => (
-                <div key={product.id}>
-                    <p>{product.nombre}</p>
-                    <p>{product.precio}</p>
-                    <p>{product.descripcion}</p>
+                <div key={product.id} className="bg-blue-800 rounded-b-lg shadow">
+                    <p><span className="font-bold">Producto: </span>{product.nombre}</p>
+                    <p><span className="font-bold">Precio $ : </span>{product.precio}</p>
+                    <p><span className="font-bold">Descripción: </span>{product.descripcion}</p>
+                    <div className="mt-4">
+                        <button className="col-end-10 bg-emerald-600 rounded-lg">Editar </button>
+                        <button className="col-end-10 bg-red-600 rounded-lg">Eliminar </button>
+                    </div>
                 </div>
             ))}
+            </div>
         </div>
     )
 }
